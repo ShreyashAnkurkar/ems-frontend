@@ -1,0 +1,67 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.welcome {
+  margin-bottom: 40px;
+}
+
+.welcome h1 {
+  font-size: 28px;
+  color: #1e3a5f;
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  color: #888;
+  font-size: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.blue   { background: linear-gradient(135deg, #1e3a5f, #2d6a9f); }
+.green  { background: linear-gradient(135deg, #1a6b3c, #27ae60); }
+.orange { background: linear-gradient(135deg, #b8560a, #e67e22); }
+.purple { background: linear-gradient(135deg, #5b2d8e, #8e44ad); }
+
+.icon {
+  font-size: 36px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.value {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+.label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  margin-top: 6px;
+}
