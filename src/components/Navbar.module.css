@@ -79,3 +79,35 @@
 .user button:hover {
   background: rgba(255,255,255,0.25);
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 8px;
+    padding: 10px 16px;
+  }
+
+  .links {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    gap: 0;
+  }
+
+  .links a {
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .brand span {
+    font-size: 13px;
+  }
+
+  .user span {
+    display: none;
+  }
+}

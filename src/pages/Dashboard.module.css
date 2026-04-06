@@ -65,3 +65,50 @@
   color: rgba(255,255,255,0.8);
   margin-top: 6px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px;
+  }
+
+  .welcome h1 {
+    font-size: 22px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+
+  .value {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .value {
+    font-size: 24px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+}

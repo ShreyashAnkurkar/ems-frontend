@@ -196,3 +196,64 @@
   font-size: 14px;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 12px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .addBtn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table {
+    min-width: 700px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .modal {
+    padding: 20px 16px;
+    margin: 16px;
+    max-height: 85vh;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .cancelBtn,
+  .submitBtn {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .editBtn,
+  .deleteBtn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
