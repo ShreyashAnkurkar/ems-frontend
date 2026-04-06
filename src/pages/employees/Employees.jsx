@@ -114,7 +114,10 @@ const Employees = () => {
               <tbody>
                 {employees.map(emp => (
                   <tr key={emp.id}>
-                    <td>{emp.firstName} {emp.lastName}</td>
+                    <td>
+                      <div style={{fontWeight: '600', color: '#1e3a5f'}}>{emp.firstName} {emp.lastName}</div>
+                      <div style={{fontSize: '12px', color: '#888', marginTop: '2px'}}>ID: #{emp.id}</div>
+                    </td>
                     <td>{emp.email}</td>
                     <td>{emp.phone}</td>
                     <td>{emp.position}</td>
