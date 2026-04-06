@@ -101,7 +101,7 @@ const Employees = () => {
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -115,7 +115,7 @@ const Employees = () => {
               <tbody>
                 {employees.map(emp => (
                   <tr key={emp.id}>
-                    <td style={{fontWeight: '600', color: '#1e3a5f'}}>#{emp.id}</td>
+                    <td style={{fontWeight: '600', color: '#1e3a5f'}}>{emp.id}</td>
                     <td>{emp.firstName} {emp.lastName}</td>
                     <td>{emp.email}</td>
                     <td>{emp.phone}</td>
