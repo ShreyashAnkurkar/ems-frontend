@@ -72,7 +72,7 @@ const Employees = () => {
       await api.delete(`/v1/employees/${id}`);
       fetchEmployees();
     }
-  };
+};
 
   const closeModal = () => {
     setShowModal(false);
