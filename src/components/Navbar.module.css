@@ -80,6 +80,15 @@
   background: rgba(255,255,255,0.25);
 }
 
+.roleBadge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 0 16px;

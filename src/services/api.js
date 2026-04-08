@@ -32,3 +32,8 @@ api.interceptors.response.use(
 );
 
 export default api;
+
+// Helper functions for user roles
+export const getUser = () => JSON.parse(localStorage.getItem('user') || '{}');
+export const isAdmin = () => getUser().role === 'ROLE_ADMIN';
+export const isEmployee = () => getUser().role === 'ROLE_EMPLOYEE';
