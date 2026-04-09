@@ -1,17 +1,24 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import api from '../services/api';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
-    employees: 0,
-    departments: 0,
-    leaves: 0,
-    payrolls: 0
+    employees: 0, departments: 0, leaves: 0, payrolls: 0
   });
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  const isEmployee = user.role === 'ROLE_EMPLOYEE';
 
   useEffect(() => {
+    if (isEmployee) {
+      // Redirect employee to their profile directly
+      navigate('/my-profile');
+      return;
+    }
+
     const fetchStats = async () => {
       try {
         const [emp, dept, leaves, payrolls] = await Promise.all([
@@ -33,7 +40,7 @@ const Dashboard = () => {
     fetchStats();
   }, []);
 
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  if (isEmployee) return null;
 
   return (
     <div>
