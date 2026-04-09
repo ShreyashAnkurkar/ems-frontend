@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/auth/Login';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/dashboard';
 import Employees from './pages/employees/Employees';
 import Departments from './pages/departments/Departments';
 import Leaves from './pages/leaves/Leaves';
