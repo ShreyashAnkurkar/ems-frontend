@@ -7,28 +7,17 @@ const MyLeaves = () => {
   const [leaves, setLeaves] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [employeeId, setEmployeeId] = useState(null);
   const [error, setError] = useState('');
-  const [form, setForm] = useState({
-    startDate: '', endDate: '', reason: '', leaveType: 'ANNUAL'
-  });
+  const [form, setForm] = useState({ startDate: '', endDate: '', reason: '', leaveType: 'ANNUAL' });
 
-  useEffect(() => {
-    fetchMyData();
-  }, []);
+  useEffect(() => { fetchLeaves(); }, []);
 
-  const fetchMyData = async () => {
+  const fetchLeaves = async () => {
     try {
-      const empRes = await api.get('/v1/employees');
-      const user = JSON.parse(localStorage.getItem('user') || '{}');
-      const myEmp = empRes.data.find(e => e.email === user.email) || empRes.data[0];
-      if (myEmp) {
-        setEmployeeId(myEmp.id);
-        const leavesRes = await api.get(`/v1/leaves/employee/${myEmp.id}`);
-        setLeaves(leavesRes.data);
-      }
+      const res = await api.get('/v1/employee/leaves');
+      setLeaves(res.data);
     } catch (err) {
-      setError('Failed to load data');
+      setError('Failed to load leaves');
     } finally {
       setLoading(false);
     }
@@ -37,8 +26,8 @@ const MyLeaves = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/v1/leaves', { ...form, employeeId });
-      fetchMyData();
+      await api.post('/v1/employee/leaves', form);
+      fetchLeaves();
       setShowModal(false);
       setForm({ startDate: '', endDate: '', reason: '', leaveType: 'ANNUAL' });
     } catch (err) {
@@ -65,10 +54,7 @@ const MyLeaves = () => {
           <div className={styles.tableWrapper}>
             <table className={styles.table}>
               <thead>
-                <tr>
-                  <th>Type</th><th>Start Date</th><th>End Date</th>
-                  <th>Days</th><th>Reason</th><th>Status</th>
-                </tr>
+                <tr><th>Type</th><th>Start Date</th><th>End Date</th><th>Days</th><th>Reason</th><th>Status</th></tr>
               </thead>
               <tbody>
                 {leaves.length === 0 ? (
@@ -96,13 +82,11 @@ const MyLeaves = () => {
                 <div className={styles.row}>
                   <div className={styles.field}>
                     <label>Start Date</label>
-                    <input type="date" value={form.startDate}
-                      onChange={e => setForm({...form, startDate: e.target.value})} required />
+                    <input type="date" value={form.startDate} onChange={e => setForm({...form, startDate: e.target.value})} required />
                   </div>
                   <div className={styles.field}>
                     <label>End Date</label>
-                    <input type="date" value={form.endDate}
-                      onChange={e => setForm({...form, endDate: e.target.value})} required />
+                    <input type="date" value={form.endDate} onChange={e => setForm({...form, endDate: e.target.value})} required />
                   </div>
                 </div>
                 <div className={styles.field}>
