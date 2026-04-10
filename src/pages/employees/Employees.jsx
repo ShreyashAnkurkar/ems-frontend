@@ -13,7 +13,8 @@ const Employees = () => {
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '',
     phone: '', position: '', salary: '',
-    joiningDate: '', departmentId: ''
+    joiningDate: '', departmentId: '',
+    username: '', password: ''
   });
 
   useEffect(() => {
@@ -79,7 +80,8 @@ const Employees = () => {
     setEditingEmployee(null);
     setForm({ firstName: '', lastName: '', email: '',
       phone: '', position: '', salary: '',
-      joiningDate: '', departmentId: '' });
+      joiningDate: '', departmentId: '',
+      username: '', password: '' });
     setError('');
   };
 
@@ -189,6 +191,29 @@ const Employees = () => {
                     </select>
                   </div>
                 </div>
+                {!editingEmployee && (
+                  <div className={styles.row}>
+                    <div className={styles.field}>
+                      <label>Username</label>
+                      <input
+                        value={form.username}
+                        onChange={e => setForm({...form, username: e.target.value})}
+                        placeholder="Login username"
+                        required={!editingEmployee}
+                      />
+                    </div>
+                    <div className={styles.field}>
+                      <label>Password</label>
+                      <input
+                        type="password"
+                        value={form.password}
+                        onChange={e => setForm({...form, password: e.target.value})}
+                        placeholder="Min 6 characters"
+                        required={!editingEmployee}
+                      />
+                    </div>
+                  </div>
+                )}
                 <div className={styles.actions}>
                   <button type="button" onClick={closeModal} className={styles.cancelBtn}>Cancel</button>
                   <button type="submit" className={styles.submitBtn}>
